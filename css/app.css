@@ -283,39 +283,17 @@ button {
   overflow: auto;
 }
 
-/* User section with collapse button */
+/* User section */
 .user-section {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .user-section .user-box {
   flex: 1;
   min-width: 0;
   margin: 0;
-}
-
-.collapse-btn {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  color: var(--muted);
-  cursor: pointer;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
-}
-
-.collapse-btn:hover {
-  background: var(--glass-highlight);
-  color: var(--text);
-  transform: translateX(-2px);
 }
 
 .resize-handle {
@@ -2486,7 +2464,7 @@ main {
   }
 
   .navbar {
-    padding: 4px 6px;
+    padding: 4px 8px;
     height: var(--navbar-h);
     gap: 4px;
   }
@@ -2501,6 +2479,7 @@ main {
   .row-end {
     gap: 4px;
     flex-shrink: 0;
+    padding-right: 2px;
   }
 
   .breadcrumbs {
@@ -2513,8 +2492,12 @@ main {
 
   .btn.small {
     padding: 3px 4px;
-    font-size: 8px;
+    font-size: 10px;
     gap: 2px;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    flex-shrink: 0;
   }
 
   .btn.small .kbd {
@@ -2551,7 +2534,7 @@ main {
   }
 
   .doc-canvas {
-    padding: 8px 6px 40px;
+    padding: 8px 8px 40px;
     max-width: 100%;
   }
 
@@ -2882,6 +2865,143 @@ main {
   }
 }
 
+/* === 초소형 모바일 대응 (300px 이하) === */
+@media (max-width: 320px) {
+  :root {
+    --navbar-h: 38px;
+  }
+
+  .navbar {
+    padding: 3px 6px;
+    gap: 2px;
+  }
+
+  .row {
+    gap: 2px;
+  }
+
+  .row-end {
+    gap: 2px;
+    padding-right: 2px;
+  }
+
+  .breadcrumbs {
+    font-size: 9px;
+    max-width: 50px;
+  }
+
+  /* navbar 버튼들 더 축소 */
+  .btn.small {
+    padding: 2px 3px;
+    font-size: 10px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .navbar .theme-toggle {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .menu-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .doc-canvas {
+    padding: 6px 6px 30px;
+  }
+
+  .doc-header {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .title-input {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .doc-icon-big {
+    font-size: 22px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .meta {
+    font-size: 9px;
+  }
+
+  .toolbar {
+    gap: 1px;
+    padding: 3px;
+  }
+
+  .tbtn {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+    padding: 2px;
+  }
+
+  .sep {
+    height: 14px;
+    margin: 0 1px;
+  }
+
+  .editor {
+    min-height: 200px;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .search-modal,
+  .settings-modal,
+  .favorites-modal {
+    width: 98vw;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .search-input {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .popover {
+    width: 200px;
+    padding: 8px;
+  }
+
+  .emoji-popover {
+    width: 180px;
+  }
+
+  .emoji-grid button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .confirm-modal {
+    width: 95vw;
+    padding: 12px;
+  }
+
+  .toast {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .doc-footer {
+    font-size: 10px;
+  }
+}
+
 #sidebar {
   width: var(--sidebar-w);
   min-width: var(--sidebar-w);
@@ -2889,11 +3009,8 @@ main {
   transition: transform 0.4s ease;
 }
 
+/* menuBtn은 항상 표시 */
 .navbar .menu-btn {
-  display: none;
-}
-
-.sidebar.is-collapsed~.navbar .menu-btn {
   display: grid;
 }
 

@@ -423,7 +423,6 @@ function fmtDate(ts) {
 
 // Layout refs
 const sidebar = $('#sidebar');
-const collapseBtn = $('#collapseBtn');
 const resizeHandle = $('#resizeHandle');
 const menuBtn = $('#menuBtn');
 const sidebarPeekBtn = $('#sidebarPeekBtn');
@@ -435,36 +434,26 @@ const newChildBtn = $('#newChildBtn');
 // Sidebar width - 고정 크기이므로 관련 함수 단순화
 const LS_LAST_WIDTH_KEY = 'vnotion:lastSidebarWidth';
 
-// 사이드바 크기 설정 함수 제거 - CSS 변수로만 관리
+// 사이드바 토글 함수
+function toggleSidebar() {
+  sidebar.classList.toggle('is-collapsed');
+}
+
 function collapse() {
   sidebar.classList.add('is-collapsed');
-  syncMenuBtnVisibility();
 }
 
-function resetWidth() {
+function expand() {
   sidebar.classList.remove('is-collapsed');
-  syncMenuBtnVisibility();
 }
 
-function syncMenuBtnVisibility() {
-  if (!menuBtn) return;
-  const show = state.isMobile || sidebar.classList.contains('is-collapsed');
-  menuBtn.style.display = show ? 'grid' : 'none';
-}
-
-collapseBtn?.addEventListener('click', () => {
-  collapse();
-  syncMenuBtnVisibility();
-});
-
+// menuBtn 클릭 시 토글
 menuBtn?.addEventListener('click', () => {
-  resetWidth();
-  syncMenuBtnVisibility();
+  toggleSidebar();
 });
 
 sidebarPeekBtn?.addEventListener('click', () => {
-  resetWidth();
-  syncMenuBtnVisibility();
+  expand();
 });
 
 // 사이드바 크기 고정 - 리사이즈 기능 비활성화
@@ -476,20 +465,18 @@ matchMedia('(max-width:768px)').addEventListener('change', (ev) => {
   if (state.isMobile) {
     collapse();
   } else {
-    resetWidth();
+    expand();
   }
-  syncMenuBtnVisibility();
 });
 if (state.isMobile) {
   collapse();
 } else {
-  resetWidth();
+  expand();
 }
-syncMenuBtnVisibility();
 
 window.addEventListener('orientationchange', () => {
   if (state.isMobile) {
-    setSidebarWidth(0);
+    collapse();
   }
 });
 
@@ -498,7 +485,6 @@ window.addEventListener('resize', () => {
   if (vw < 768 && !sidebar.classList.contains('is-collapsed')) {
     collapse();
   }
-  syncMenuBtnVisibility();
 });
 
 // =====================
