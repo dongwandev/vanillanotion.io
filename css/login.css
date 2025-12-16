@@ -271,12 +271,14 @@ body {
     border-color: #00c6fb;
     box-shadow: 0 0 20px rgba(0, 198, 251, 0.2);
     transform: scale(1.02);
+    outline: none;
 }
 
 :root[data-theme="light"] .form-input:focus {
     background: #ffffff;
     border-color: #0984e3;
     box-shadow: 0 0 15px rgba(9, 132, 227, 0.2);
+    outline: none;
 }
 
 .form-group:focus-within .form-label {
@@ -508,6 +510,11 @@ body {
 :focus-visible {
     outline: 2px solid var(--link-hover, #00c6fb);
     outline-offset: 2px;
+}
+
+/* 입력 필드는 자체 포커스 스타일 사용 */
+.form-input:focus-visible {
+    outline: none;
 }
 
 /* Reduced Motion */

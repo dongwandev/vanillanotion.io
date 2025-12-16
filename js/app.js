@@ -1874,7 +1874,7 @@ function init() {
   if (state.isMobile) {
     collapse();
   } else {
-    resetWidth();
+    expand();
   }
   renderTrees();
   renderTrash();
@@ -1885,7 +1885,6 @@ function init() {
   }
   const ld = $('#lastEdited');
   if (ld) ld.textContent = new Date().toLocaleDateString();
-  syncMenuBtnVisibility();
 }
 
 init();
