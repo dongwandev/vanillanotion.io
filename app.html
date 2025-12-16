@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Vanilla Notion Pro — Final</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Vanilla Notion - 문서, 위키, 프로젝트를 하나로 통합하는 작업 공간" />
+  <meta name="keywords" content="노션, 메모, 문서 관리, 프로젝트 관리, Notion" />
+  <meta name="author" content="Vanilla Notion Team" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vanilla Notion Pro" />
+  <meta property="og:description" content="당신의 모든 생각, 하나의 우주에서" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>" />
+
+  <!-- Inter & Outfit fonts (optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/app.css" />
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#editor" class="skip-link">본문으로 건너뛰기</a>
+
+  <!-- Background Animation -->
+  <div class="background-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar" role="navigation" aria-label="사이드바 네비게이션">
+      <div class="inner">
+        <!-- User -->
+        <div class="user-section">
+          <div class="user-box" role="button" tabindex="0" aria-label="사용자 정보">
+            <div class="avatar" aria-hidden="true">👤</div>
+            <div class="user-meta">
+              <strong id="userName">Guest</strong>
+              <small id="userEmail">guest@example.com</small>
+            </div>
+          </div>
+          <button id="collapseBtn" class="collapse-btn" title="사이드바 접기" aria-label="사이드바 접기" aria-expanded="true">
+            ⟨⟨
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <nav class="nav-items" aria-label="주요 기능">
+          <div class="item" id="actionSearch" role="button" tabindex="0" aria-label="검색 (단축키: Ctrl+K)">
+            <span>🔎 Search</span>
+            <div class="right" aria-hidden="true">
+              <span class="kbd">⌘</span><span class="kbd">K</span>
+            </div>
+          </div>
+          <div class="item" id="actionSettings" role="button" tabindex="0" aria-label="설정">
+            <span>⚙️ Settings</span>
+          </div>
+          <div class="item" id="actionCreateRoot" role="button" tabindex="0" aria-label="새 페이지 만들기">
+            <span>New page</span>
+          </div>
+        </nav>
+
+        <!-- Documents -->
+        <h2 class="group-title" id="allPagesTitle">All pages</h2>
+        <nav id="docListRoot" class="doc-list" role="tree" aria-labelledby="allPagesTitle"></nav>
+        <div class="nav-items">
+          <div class="item" id="actionAddPage" role="button" tabindex="0" aria-label="페이지 추가">
+            <span>Add a page</span>
+          </div>
+        </div>
+
+        <!-- Trash trigger -->
+        <div class="nav-items">
+          <div class="item" id="trashTrigger" role="button" tabindex="0" aria-label="휴지통 열기" aria-haspopup="true">
+            <span>🗑️ Trash</span>
+          </div>
+        </div>
+
+        <!-- Resize handle -->
+        <div id="resizeHandle" class="resize-handle" role="separator" aria-orientation="vertical"
+          aria-label="사이드바 크기 조절" title="드래그하여 크기 조절 / 더블클릭으로 초기화"></div>
+      </div>
+    </aside>
+
+    <!-- Peek button when collapsed (mobile/compact) -->
+    <button id="sidebarPeekBtn" class="peek-btn" title="사이드바 열기" aria-label="사이드바 열기" aria-expanded="false">
+      ☰
+    </button>
+
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+      <div class="row">
+        <button id="menuBtn" class="menu-btn" title="사이드바 열기" aria-label="사이드바 열기">
+          ☰
+        </button>
+        <nav id="breadcrumbs" class="breadcrumbs" aria-label="현재 위치">Welcome</nav>
+      </div>
+      <div class="row-end">
+        <button id="navbarSearch" class="btn small" title="검색" aria-label="검색">🔍</button>
+        <button id="openFavoritesModal" class="btn small" title="즐겨찾기" aria-label="즐겨찾기 목록 열기">⭐</button>
+        <button id="starBtn" class="btn small" title="즐겨찾기 추가/제거" aria-label="즐겨찾기 추가 또는 제거">☆</button>
+        <button id="newChildBtn" class="btn small" title="하위 페이지 만들기" aria-label="하위 페이지 만들기">＋</button>
+        <button id="navbarSettings" class="btn small" title="설정" aria-label="설정">⚙️</button>
+        <button id="themeBtn" class="theme-toggle" title="테마 변경" aria-label="테마 변경">🌙</button>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main id="mainContent" role="main">
+      <article class="doc-canvas">
+        <div class="doc-header">
+          <button id="iconBtn" class="doc-icon-big" title="아이콘 변경" aria-label="문서 아이콘 변경">📄</button>
+          <label for="titleInput" class="visually-hidden">문서 제목</label>
+          <input id="titleInput" class="title-input" type="text" placeholder="Untitled" aria-label="문서 제목" />
+        </div>
+        <p id="docMeta" class="doc-meta muted" aria-live="polite">—</p>
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="toolbar" role="toolbar" aria-label="서식 도구모음">
+          <button class="tbtn" data-cmd="bold" title="굵게 (Ctrl+B)" aria-label="굵게"><b>B</b></button>
+          <button class="tbtn" data-cmd="italic" title="기울임 (Ctrl+I)" aria-label="기울임"><i>I</i></button>
+          <button class="tbtn" data-cmd="underline" title="밑줄 (Ctrl+U)" aria-label="밑줄"><u>U</u></button>
+          <span class="sep" aria-hidden="true"></span>
+          <button class="tbtn" data-format="P" title="본문" aria-label="본문">P</button>
+          <button class="tbtn" data-format="H1" title="제목 1" aria-label="제목 1">H1</button>
+          <button class="tbtn" data-format="H2" title="제목 2" aria-label="제목 2">H2</button>
+          <button class="tbtn" data-format="H3" title="제목 3" aria-label="제목 3">H3</button>
+          <span class="sep" aria-hidden="true"></span>
+          <button id="bulletsBtn" class="tbtn" title="글머리 기호" aria-label="글머리 기호 목록">• List</button>
+          <button id="numbersBtn" class="tbtn" title="번호 목록" aria-label="번호 목록">1. List</button>
+          <button id="todoBtn" class="tbtn" title="할 일" aria-label="할 일 체크박스">☐ To-do</button>
+          <button id="codeBtn" class="tbtn" title="코드 블록" aria-label="코드 블록">{}</button>
+          <button id="quoteBtn" class="tbtn" title="인용" aria-label="인용 블록">❝</button>
+        </div>
+
+        <!-- Editor -->
+        <div id="editor" class="editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="문서 편집기"
+          tabindex="0"></div>
+
+        <footer class="doc-footer muted">
+          <span>Last edited: <time id="lastEdited" datetime="">—</time></span>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <!-- Trash Popover -->
+  <div id="trashPopover" class="popover" role="dialog" aria-label="휴지통" aria-modal="false">
+    <div class="popover-head">
+      <h3>🗑️ Trash</h3>
+      <label for="trashSearch" class="visually-hidden">휴지통 검색</label>
+      <input id="trashSearch" type="search" class="input" placeholder="Search in trash..." aria-label="휴지통에서 검색" />
+    </div>
+    <div id="trashList" class="popover-body" role="list" aria-label="삭제된 문서 목록"></div>
+  </div>
+
+  <!-- Emoji Picker -->
+  <div id="emojiPicker" class="popover emoji-popover" role="dialog" aria-label="이모지 선택">
+    <div id="emojiGrid" class="emoji-grid" role="listbox" aria-label="이모지 목록"></div>
+  </div>
+
+  <!-- Quick Search Modal -->
+  <div id="searchOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="searchTitle"
+    style="display:none">
+    <div class="modal search-modal">
+      <div class="search-modal-header">
+        <span class="search-icon">🔍</span>
+        <h3 id="searchTitle">빠른 검색</h3>
+      </div>
+      <div class="search-input-wrapper">
+        <label for="searchInput" class="visually-hidden">검색어 입력</label>
+        <input id="searchInput" class="search-input" type="search" placeholder="페이지 검색..." autocomplete="off"
+          aria-label="페이지 검색" />
+      </div>
+      <div id="searchResults" class="search-results" role="listbox" aria-label="검색 결과"></div>
+      <div class="search-footer">
+        <span class="search-hint-text">키보드로 탐색</span>
+        <div class="search-keys">
+          <kbd>↑</kbd><kbd>↓</kbd>
+          <span>이동</span>
+          <kbd>↵</kbd>
+          <span>선택</span>
+          <kbd>ESC</kbd>
+          <span>닫기</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Favorites Modal -->
+  <div id="favoritesOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="favoritesTitle"
+    style="display:none">
+    <div class="modal favorites-modal">
+      <div class="favorites-modal-header">
+        <span class="favorites-icon">⭐</span>
+        <h3 id="favoritesTitle">즐겨찾기</h3>
+        <button id="favoritesClose" class="favorites-close-btn" aria-label="닫기">&times;</button>
+      </div>
+      <div id="favoritesListModal" class="favorites-list" role="list" aria-label="즐겨찾기 목록"></div>
+      <div class="favorites-footer">
+        <span class="favorites-hint">★ 아이콘으로 즐겨찾기 해제</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"
+    style="display:none">
+    <div class="modal settings-modal">
+      <header class="modal-header">
+        <h2 id="settingsTitle">⚙️ Settings</h2>
+        <button id="settingsClose" class="close-btn" aria-label="닫기">&times;</button>
+      </header>
+
+      <section class="settings-section" aria-labelledby="profileSectionTitle">
+        <h3 id="profileSectionTitle">Profile</h3>
+
+        <div class="settings-row">
+          <div>
+            <label for="settingsNameInput" class="label">Display Name</label>
+            <p class="sublabel">How others see you.</p>
+          </div>
+          <div class="settings-row-right">
+            <input id="settingsNameInput" type="text" class="settings-input" placeholder="Guest" aria-label="표시 이름" />
+            <button id="settingsSaveNameBtn" class="btn small primary" aria-label="이름 저장">Save</button>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <div>
+            <span class="label">Avatar</span>
+            <p class="sublabel">Pick an emoji avatar</p>
+          </div>
+          <button id="settingsAvatarBtn" class="avatar-btn" aria-label="아바타 이모지 선택" aria-haspopup="true">😊</button>
+        </div>
+      </section>
+
+      <section class="settings-section" aria-labelledby="themeSectionTitle">
+        <h3 id="themeSectionTitle">화면 모드</h3>
+        <div class="theme-cards" role="radiogroup" aria-labelledby="themeSectionTitle">
+          <label class="theme-card">
+            <input type="radio" name="themeMode" value="light" aria-label="라이트 모드" />
+            <div class="theme-preview theme-preview-light" aria-hidden="true">
+              <div class="preview-sidebar"></div>
+              <div class="preview-content">
+                <div class="preview-line"></div>
+                <div class="preview-line short"></div>
+              </div>
+            </div>
+            <span class="theme-label">라이트 모드</span>
+          </label>
+          <label class="theme-card">
+            <input type="radio" name="themeMode" value="dark" aria-label="다크 모드" />
+            <div class="theme-preview theme-preview-dark" aria-hidden="true">
+              <div class="preview-sidebar"></div>
+              <div class="preview-content">
+                <div class="preview-line"></div>
+                <div class="preview-line short"></div>
+              </div>
+            </div>
+            <span class="theme-label">다크 모드</span>
+          </label>
+          <label class="theme-card">
+            <input type="radio" name="themeMode" value="auto" aria-label="자동 (시스템 설정)" />
+            <div class="theme-preview theme-preview-auto" aria-hidden="true">
+              <div class="preview-sidebar"></div>
+              <div class="preview-content">
+                <div class="preview-line"></div>
+                <div class="preview-line short"></div>
+              </div>
+            </div>
+            <span class="theme-label">자동</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="settings-section" aria-labelledby="dataSectionTitle">
+        <h3 id="dataSectionTitle">Data</h3>
+        <div class="settings-row">
+          <div>
+            <span class="label">Export all data</span>
+            <p class="sublabel">Download as JSON</p>
+          </div>
+          <button id="exportBtn" class="btn small" aria-label="데이터 내보내기">Export</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <span class="label">Import data</span>
+            <p class="sublabel">Restore from JSON</p>
+          </div>
+          <label class="btn small" tabindex="0" role="button" aria-label="데이터 가져오기">
+            Import
+            <input id="importFile" type="file" accept=".json" hidden aria-hidden="true" />
+          </label>
+        </div>
+      </section>
+
+      <section class="settings-section" aria-labelledby="accountSectionTitle">
+        <h3 id="accountSectionTitle">Account</h3>
+        <div class="settings-row">
+          <div>
+            <span class="label">로그아웃</span>
+            <p class="sublabel">현재 계정에서 로그아웃합니다.</p>
+          </div>
+          <button id="settingsLogoutBtn" class="btn small danger" aria-label="로그아웃">Logout</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Confirm Modal -->
+  <div id="modalOverlay" class="overlay modal-overlay" role="alertdialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-describedby="modalMessage" style="display:none">
+    <div class="modal confirm-modal">
+      <h2 id="modalTitle">Confirm</h2>
+      <p id="modalMessage">Are you sure?</p>
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn" aria-label="취소">Cancel</button>
+        <button id="modalConfirm" class="btn danger" aria-label="확인">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toasts" class="toasts" role="status" aria-live="polite" aria-label="알림 메시지"></div>
+
+  <script src="./js/app.js"></script>
+</body>
+
+</html>

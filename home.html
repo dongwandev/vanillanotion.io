@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Vanilla Notion - 당신의 우주를 기록하세요</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <!-- 배경 -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <!-- 네비게이션 -->
+    <nav class="nav-container" id="navbar">
+        <a href="#" class="logo">
+            <span>🪐</span> Vanilla Notion
+        </a>
+
+        <div class="nav-links">
+            <a href="#features" class="nav-item">기능 소개</a>
+            <!-- 변경됨: 다운로드/커뮤니티 -> 요금제/자주 묻는 질문 -->
+            <a href="#pricing" class="nav-item">요금제</a>
+            <a href="#faq" class="nav-item">자주 묻는 질문</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-text">로그인</a>
+            <a href="signup.html" class="btn btn-primary">무료로 시작</a>
+            <button id="themeBtn" class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <header class="hero">
+        <h1 class="hero-title fade-up">
+            당신의 모든 생각,<br />하나의 우주에서.
+        </h1>
+        <p class="hero-desc fade-up" style="transition-delay: 0.1s;">
+            Vanilla Notion은 문서, 위키, 프로젝트를 하나로 통합하는<br />
+            가장 아름답고 강력한 작업 공간입니다.
+        </p>
+
+        <div class="cta-group fade-up" style="transition-delay: 0.2s;">
+            <a href="signup.html" class="btn cta-btn btn-primary">
+                Vanilla Notion 사용해보기 🚀
+            </a>
+        </div>
+
+        <!-- 앱 목업 (인터페이스 미리보기) -->
+        <div class="app-preview-container fade-up" style="transition-delay: 0.3s;">
+            <div class="mock-sidebar">
+                <div class="mock-user">
+                    <div class="mock-avatar"></div>
+                    <div class="mock-line" style="width: 80px;"></div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div class="mock-nav-item">
+                        <div class="mock-icon"></div>
+                        <div class="mock-line" style="width: 60%;"></div>
+                    </div>
+                    <div class="mock-nav-item">
+                        <div class="mock-icon"></div>
+                        <div class="mock-line" style="width: 70%;"></div>
+                    </div>
+                    <div class="mock-nav-item">
+                        <div class="mock-icon"></div>
+                        <div class="mock-line" style="width: 50%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mock-editor">
+                <div class="mock-cover"></div>
+                <div style="font-size: 30px; margin-bottom: 10px;">🪐</div>
+                <div class="mock-title"></div>
+                <div class="mock-content-line" style="width: 100%;"></div>
+                <div class="mock-content-line" style="width: 90%;"></div>
+                <div class="mock-content-line" style="width: 95%;"></div>
+                <div class="mock-content-line" style="width: 60%;"></div>
+                <div style="margin-top: 30px; display: flex; gap: 10px;">
+                    <div style="width: 100px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    </div>
+                    <div style="width: 100px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 기능 섹션 -->
+    <section id="features">
+        <div class="section-header fade-up">
+            <h2 class="section-title">무한한 가능성</h2>
+            <p class="section-desc">단순한 메모장을 넘어선 강력한 도구들을 만나보세요.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-up">
+                <div class="feature-icon">📂</div>
+                <h3 class="feature-title">무한한 계층 구조</h3>
+                <p class="feature-desc">
+                    폴더 안에 폴더, 그 안에 또 다른 페이지.<br />
+                    생각의 흐름대로 자유롭게 정보를 정리하세요.
+                </p>
+            </div>
+            <div class="feature-card fade-up" style="transition-delay: 0.1s;">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">강력한 편집기</h3>
+                <p class="feature-desc">
+                    드래그 앤 드롭, 마크다운 지원, 그리고<br />
+                    풍부한 임베드 기능으로 문서를 작성하세요.
+                </p>
+            </div>
+            <div class="feature-card fade-up" style="transition-delay: 0.2s;">
+                <div class="feature-icon">🌌</div>
+                <h3 class="feature-title">Cosmic 디자인</h3>
+                <p class="feature-desc">
+                    몰입감을 높여주는 아름다운 다크 모드와<br />
+                    글래스모피즘 인터페이스를 경험하세요.
+                </p>
+            </div>
+            <div class="feature-card fade-up" style="transition-delay: 0.3s;">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">초고속 퍼포먼스</h3>
+                <p class="feature-desc">
+                    Vanilla JS로 제작되어 가볍고 빠릅니다.<br />
+                    복잡한 로딩 없이 즉시 아이디어를 기록하세요.
+                </p>
+            </div>
+            <div class="feature-card fade-up" style="transition-delay: 0.4s;">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">로컬 데이터 저장</h3>
+                <p class="feature-desc">
+                    모든 데이터는 브라우저에 안전하게 저장됩니다.<br />
+                    서버 전송 없이 나만의 공간을 가지세요.
+                </p>
+            </div>
+            <div class="feature-card fade-up" style="transition-delay: 0.5s;">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">완벽한 반응형</h3>
+                <p class="feature-desc">
+                    데스크톱, 태블릿, 모바일 어디서든<br />
+                    최적화된 환경에서 작업할 수 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 요금제 섹션 (새로 추가됨) -->
+    <section id="pricing">
+        <div class="section-header fade-up">
+            <h2 class="section-title">심플한 요금제</h2>
+            <p class="section-desc">복잡한 조건 없이, 당신에게 꼭 맞는 플랜을 선택하세요.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-up">
+                <div class="price-badge">Starter</div>
+                <div class="price-amount">₩0</div>
+                <div class="price-period">평생 무료</div>
+                <ul class="price-features">
+                    <li>무제한 개인 페이지 생성</li>
+                    <li>모바일/데스크톱 동기화</li>
+                    <li>기본 블록 사용 가능</li>
+                    <li>5MB 파일 업로드 제한</li>
+                </ul>
+                <a href="signup.html" class="btn btn-text"
+                    style="border: 1px solid var(--glass-border); width: 100%; display:block;">시작하기</a>
+            </div>
+            <div class="pricing-card highlight fade-up" style="transition-delay: 0.1s;">
+                <div class="price-badge">Pro</div>
+                <div class="price-amount">₩8,900</div>
+                <div class="price-period">/월</div>
+                <ul class="price-features">
+                    <li>Starter의 모든 기능 포함</li>
+                    <li>무제한 파일 업로드</li>
+                    <li>버전 기록 (30일)</li>
+                    <li>우선 고객 지원</li>
+                </ul>
+                <!-- 수정됨: 버튼 비활성화 및 텍스트 변경 -->
+                <button class="btn btn-disabled" style="width: 100%; display:block;" disabled>준비 중 (추후 출시 예정)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 섹션 (새로 추가됨) -->
+    <section id="faq">
+        <div class="section-header fade-up">
+            <h2 class="section-title">자주 묻는 질문</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <div class="faq-question">
+                    Vanilla Notion은 정말 무료인가요?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    네, 개인 사용자를 위한 Starter 플랜은 평생 무료입니다. 페이지 생성 개수에 제한이 없으며, 기본적인 모든 기능을 자유롭게 이용하실 수 있습니다.
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <div class="faq-question">
+                    데이터는 어디에 저장되나요?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Vanilla Notion은 프라이버시를 최우선으로 생각합니다. 모든 데이터는 사용자의 브라우저 로컬 스토리지(Local Storage)에 암호화되어 저장되며, 외부 서버로
+                    전송되지 않습니다.
+                </div>
+            </div>
+            <div class="faq-item fade-up">
+                <div class="faq-question">
+                    오프라인에서도 사용할 수 있나요?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    네! 인터넷 연결이 끊겨도 이전에 로드된 페이지는 계속해서 편집할 수 있으며, 연결이 복구되면 자동으로 변경사항이 동기화될 준비를 마칩니다 (현재 버전은 로컬 전용입니다).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-logo">Vanilla Notion</div>
+        <div class="footer-links">
+            <a href="#" class="footer-link">개인정보처리방침</a>
+            <a href="#" class="footer-link">이용약관</a>
+            <a href="#faq" class="footer-link">도움말</a>
+            <a href="#" class="footer-link">문의하기</a>
+        </div>
+        <div class="copyright">© 2025 Vanilla Notion. All rights reserved.</div>
+    </footer>
+
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

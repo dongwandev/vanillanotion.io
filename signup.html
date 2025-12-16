@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Vanilla Notion - Sign Up</title>
+    <meta name="description" content="Vanilla Notion - 새로운 여정을 시작하세요" />
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>" />
+</head>
+
+<body>
+
+    <!-- 배경 애니메이션 요소 -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Topbar -->
+    <nav class="topbar">
+        <a href="home.html" class="topbar-logo">
+            <span class="topbar-logo-icon">🪐</span>
+            <span class="topbar-logo-text">Vanilla Notion</span>
+        </a>
+        <button id="themeBtn" class="theme-toggle" title="Toggle Theme">
+            🌙
+        </button>
+    </nav>
+
+    <main class="login-container" role="main">
+        <div class="login-card">
+            <div class="brand-icon">🚀</div>
+            <h1 class="brand-title">New Mission</h1>
+            <div class="brand-subtitle">새로운 여정을 시작하세요.</div>
+
+            <form id="signupForm" class="login-form" aria-label="회원가입 폼">
+                <div class="form-group">
+                    <label for="inputName" class="form-label">NAME</label>
+                    <input id="inputName" type="text" class="form-input" placeholder="Space Walker" autocomplete="name"
+                        aria-required="true" required />
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="form-label">EMAIL</label>
+                    <input id="inputEmail" type="email" class="form-input" placeholder="cosmic@example.com"
+                        autocomplete="email" aria-required="true" required />
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label">PASSWORD</label>
+                    <input id="inputPassword" type="password" class="form-input" placeholder="••••••••"
+                        autocomplete="new-password" aria-required="true" minlength="6" required />
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn" aria-label="회원가입">
+                    <span class="text">JOIN THE MISSION 🌌</span>
+                    <span class="spinner" aria-hidden="true"></span>
+                </button>
+            </form>
+
+            <div class="footer-links">
+                <div>
+                    이미 계정이 있으신가요? <a href="login.html" class="link">로그인</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/signup.js"></script>
+</body>
+
+</html>

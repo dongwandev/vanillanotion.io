@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Vanilla Notion - Login</title>
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Vanilla Notion - 로그인하여 당신의 우주를 기록하세요" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>" />
+
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+
+    <!-- 배경 애니메이션 요소 -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Topbar -->
+    <nav class="topbar">
+        <a href="home.html" class="topbar-logo">
+            <span class="topbar-logo-icon">🪐</span>
+            <span class="topbar-logo-text">Vanilla Notion</span>
+        </a>
+        <button id="themeBtn" class="theme-toggle" title="Toggle Theme">
+            🌙
+        </button>
+    </nav>
+
+    <main class="login-container" role="main">
+        <div class="login-card">
+            <div class="brand-icon">🪐</div>
+            <h1 class="brand-title">Vanilla Notion</h1>
+            <div class="brand-subtitle">우주의 영감을 담아, 기록하세요.</div>
+
+            <form id="loginForm" class="login-form" aria-label="로그인 폼">
+                <div class="form-group">
+                    <label for="inputEmail" class="form-label">EMAIL</label>
+                    <input id="inputEmail" type="email" class="form-input" placeholder="cosmic@example.com"
+                        autocomplete="email" aria-describedby="emailHelp" required />
+                    <span id="emailHelp" class="visually-hidden">이메일 주소를 입력하세요</span>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label">PASSWORD</label>
+                    <input id="inputPassword" type="password" class="form-input" placeholder="••••••••"
+                        autocomplete="current-password" aria-describedby="passwordHelp" required />
+                    <span id="passwordHelp" class="visually-hidden">비밀번호를 입력하세요</span>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn" aria-label="로그인">
+                    <span class="text">LAUNCH 🚀</span>
+                    <span class="spinner" aria-hidden="true"></span>
+                </button>
+            </form>
+
+            <div class="footer-links">
+                <div>
+                    <a href="forgot-password.html" class="link">비밀번호 찾기</a>
+                    <span style="opacity: 0.5">|</span>
+                    <a href="signup.html" class="link">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 에러 메시지 영역 (스크린 리더용) -->
+    <div id="formErrors" role="alert" aria-live="assertive" class="visually-hidden"></div>
+
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
