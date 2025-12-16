@@ -2440,15 +2440,24 @@ main {
     white-space: nowrap;
   }
 
-  .btn.small {
-    padding: 4px 6px;
-    font-size: 10px;
+  .navbar .btn.small {
+    padding: 4px;
+    font-size: 12px;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
   }
 
   .navbar .theme-toggle {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .menu-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
   }
 }
 
@@ -2490,13 +2499,13 @@ main {
     white-space: nowrap;
   }
 
-  .btn.small {
-    padding: 3px 4px;
-    font-size: 10px;
+  .navbar .btn.small {
+    padding: 2px;
+    font-size: 12px;
     gap: 2px;
-    width: 26px;
-    height: 26px;
-    min-width: 26px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
     flex-shrink: 0;
   }
 
@@ -2505,14 +2514,14 @@ main {
   }
 
   .navbar .theme-toggle {
-    width: 26px;
-    height: 26px;
-    font-size: 11px;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
   }
 
   .menu-btn {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     font-size: 12px;
   }
 
@@ -2891,23 +2900,23 @@ main {
   }
 
   /* navbar 버튼들 더 축소 */
-  .btn.small {
-    padding: 2px 3px;
-    font-size: 10px;
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
+  .navbar .btn.small {
+    padding: 2px;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
   }
 
   .navbar .theme-toggle {
-    width: 24px;
-    height: 24px;
-    font-size: 10px;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
   }
 
   .menu-btn {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     font-size: 11px;
   }
 
