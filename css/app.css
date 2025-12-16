@@ -2448,11 +2448,437 @@ main {
   .settings-modal,
   .favorites-modal {
     width: min(520px, 96vw);
-    padding: 12px;
+  }
+
+  .navbar {
+    padding: 6px 8px;
+  }
+
+  .breadcrumbs {
+    font-size: 12px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btn.small {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .navbar .theme-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+/* === 최소 모바일 대응 (300px ~ 360px) === */
+@media (max-width: 360px) {
+  :root {
+    --sidebar-w: 180px;
+    --navbar-h: 42px;
+  }
+
+  .app {
+    grid-template-columns: 0 1fr;
+  }
+
+  .navbar {
+    padding: 4px 6px;
+    height: var(--navbar-h);
+    gap: 4px;
+  }
+
+  .row {
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .row-end {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .breadcrumbs {
+    font-size: 10px;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btn.small {
+    padding: 3px 4px;
+    font-size: 8px;
+    gap: 2px;
+  }
+
+  .btn.small .kbd {
+    display: none;
+  }
+
+  .navbar .theme-toggle {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .menu-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: var(--z-sidebar);
+    transform: translateX(-100%);
+  }
+
+  .sidebar:not(.is-collapsed) {
+    transform: translateX(0);
+  }
+
+  .sidebar.is-collapsed {
+    transform: translateX(-100%);
+  }
+
+  .doc-canvas {
+    padding: 8px 6px 40px;
+    max-width: 100%;
+  }
+
+  .doc-header {
+    gap: 8px;
+  }
+
+  .title-input {
+    font-size: 16px;
+  }
+
+  .doc-icon-big {
+    font-size: 26px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .meta {
+    font-size: 10px;
+  }
+
+  .toolbar {
+    gap: 2px;
+    padding: 4px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+  }
+
+  .tbtn {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .sep {
+    height: 16px;
+  }
+
+  .editor {
+    min-height: 250px;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .editor :where(h1, h2, h3) {
+    margin: 8px 0 4px;
+  }
+
+  .editor h1 {
+    font-size: 18px;
+  }
+
+  .editor h2 {
+    font-size: 16px;
+  }
+
+  .editor h3 {
+    font-size: 14px;
+  }
+
+  .item {
+    padding: 5px;
+    font-size: 11px;
+  }
+
+  .tree-row {
+    padding: 4px 5px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .caret {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+
+  .doc-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+  }
+
+  .tree-actions {
+    gap: 2px;
+  }
+
+  .icon-btn,
+  .dropdown-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .dropdown-menu {
+    min-width: 160px;
+    padding: 4px;
+    border-radius: 10px;
+  }
+
+  .menu-item {
+    padding: 7px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .popover {
+    width: 240px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .popover-head h3 {
+    font-size: 14px;
+  }
+
+  .popover input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .trash-row {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .search-modal,
+  .settings-modal,
+  .favorites-modal {
+    width: 96vw;
+    max-width: 340px;
+    padding: 10px;
+    border-radius: 12px;
+    max-height: 90vh;
+  }
+
+  .search-modal-header h3,
+  .favorites-modal-header h3 {
+    font-size: 16px;
   }
 
   .search-input {
-    padding: 10px 12px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .search-item {
+    padding: 8px;
+  }
+
+  .search-item .icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .search-item .title {
+    font-size: 13px;
+  }
+
+  .search-item .path {
+    font-size: 10px;
+  }
+
+  .search-footer {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .search-keys kbd {
+    padding: 2px 4px;
+    font-size: 9px;
+  }
+
+  .peek-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    left: 4px;
+    top: calc(var(--navbar-h) + 6px);
+  }
+
+  .user-section {
+    padding: 8px;
+  }
+
+  .user-box {
+    padding: 6px;
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .user-meta strong {
+    font-size: 11px;
+  }
+
+  .user-meta small {
+    font-size: 9px;
+  }
+
+  .collapse-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .group-title {
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+
+  .nav-items {
+    gap: 2px;
+  }
+
+  /* Settings modal 360px */
+  .settings-section h3 {
+    font-size: 13px;
+  }
+
+  .settings-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .settings-row .label {
+    font-size: 12px;
+  }
+
+  .settings-row .sublabel {
+    font-size: 10px;
+  }
+
+  .settings-row-right {
+    width: 100%;
+  }
+
+  .settings-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .theme-cards {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .theme-preview {
+    height: 50px;
+  }
+
+  .theme-label {
+    font-size: 11px;
+  }
+
+  /* Toast 360px */
+  .toasts {
+    right: 8px;
+    bottom: 8px;
+    max-width: calc(100vw - 16px);
+  }
+
+  .toast {
+    padding: 10px 14px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  /* Confirm modal 360px */
+  .confirm-modal {
+    width: 90vw;
+    max-width: 300px;
+    padding: 16px;
+  }
+
+  .confirm-modal h3 {
+    font-size: 14px;
+  }
+
+  .confirm-modal p {
+    font-size: 12px;
+  }
+
+  /* Emoji picker 360px */
+  .emoji-popover {
+    width: 220px;
+  }
+
+  .emoji-grid {
+    gap: 4px;
+  }
+
+  .emoji-grid button {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  /* Favorites 360px */
+  .fav-row {
+    padding: 8px;
+  }
+
+  .fav-row .fav-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .fav-row .fav-title {
+    font-size: 13px;
+  }
+
+  .fav-row .fav-path {
+    font-size: 10px;
   }
 }
 
